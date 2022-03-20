@@ -27,10 +27,44 @@ body {
 }
 
 .flashButton {
+  --lineWidth: 5px;
+  --lineColor: white;
+
   all: unset;
   width: 100%;
   height: 100%;
   cursor: pointer;
+  background: red;
+  position: relative;
+}
+
+.live::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: var(--lineWidth);
+  background: var(--lineColor);
+  height: 100%;
+  top: 0;
+  left: calc(var(--lineWidth) * -1);
+
+  animation: linear infinite alternate;
+  animation-name: left-right;
+  animation-duration: 5s;
+}
+
+@keyframes left-right {
+  0% {
+    left: 0;
+  }
+
+  50% {
+    left: calc(100% - var(--lineWidth));
+  }
+
+  100% {
+    left: 0;
+  }
 }
 
 .message p {
