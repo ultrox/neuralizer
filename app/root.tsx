@@ -6,11 +6,22 @@ import {
   Scripts,
   ScrollRestoration,
 } from 'remix';
-import type { MetaFunction } from 'remix';
+import type { MetaFunction, LinksFunction } from 'remix';
+
+import globalStylesUrl from "./styles/global.css";
 
 export const meta: MetaFunction = () => {
   return { title: 'Neuralyzer' };
 };
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "stylesheet",
+      href: globalStylesUrl,
+    },
+  ];
+}
 
 export default function App() {
   return (
