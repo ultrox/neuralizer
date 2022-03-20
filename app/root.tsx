@@ -8,7 +8,7 @@ import {
 } from 'remix';
 import type { MetaFunction, LinksFunction } from 'remix';
 
-import globalStylesUrl from "./styles/global.css";
+import resetStylesUrl from "./styles/reset.css";
 
 export const meta: MetaFunction = () => {
   return { title: 'Neuralyzer' };
@@ -18,7 +18,7 @@ export const links: LinksFunction = () => {
   return [
     {
       rel: "stylesheet",
-      href: globalStylesUrl,
+      href: resetStylesUrl,
     },
   ];
 }
