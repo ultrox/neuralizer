@@ -9,6 +9,7 @@ export function links() {
 export default function Index() {
   const [flash, setFlash] = useState(false);
   const [showMessage, setShowMsg] = useState(false);
+  const [live, setLive] = useState(false);
 
   const setFlashOn = () => {
     setFlash(true);
@@ -32,10 +33,15 @@ export default function Index() {
   }, [showMessage]);
 
   const turnNeuralizorOn = () => {
-    setFlashOn();
-    setShowMsg(true);
+    setLive(true);
+    setTimeout(() => {
+      setLive(false);
+      setFlashOn();
+      setShowMsg(true);
+    }, 1000);
   };
   const cssForFlash = flash ? 'block' : 'none';
+  const buttonStyle = live ? 'flashButton live' : 'flashButton';
 
   return (
     <>
@@ -48,7 +54,7 @@ export default function Index() {
           </div>
         ) : (
           <div className="dot">
-            <button onClick={turnNeuralizorOn} className="flashButton"></button>
+            <button onClick={turnNeuralizorOn} className={buttonStyle}></button>
           </div>
         )}
       </div>
